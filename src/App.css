@@ -1,0 +1,128 @@
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #145a98;
+  color: #ffffff;
+  gap: 3rem;
+}
+
+.weather__hourly {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.05);
+  gap: 1rem;
+}
+
+.weather__today {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.weather__forecast {
+  padding: 1rem;
+}
+
+.today__location {
+  font-size: x-large;
+}
+
+.today__temperature {
+  font-size: xx-large;
+}
+
+.today__condition {
+  font-size: medium;
+}
+
+.today__range {
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  gap: 0.5rem;
+}
+
+
+.hourly__timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1rem;
+  overflow: auto;
+
+}
+
+.timeline__period {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.weather__forecast {
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast__grouping {
+  display: flex;
+  flex-direction: column;
+}
+
+.grouping__day {
+  display: flex;
+  flex-direction: row;
+}
+
+.day__temperature {
+  display: flex;
+  flex-direction: row;
+}
+
+.day__details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+
+.weather__forecast {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0.05);
+}
+
+.forecast__grouping {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.grouping__day {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
