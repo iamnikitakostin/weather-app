@@ -2,29 +2,38 @@ import React from 'react'
 
 function HourlyWeatherHour(props) {
     const weather = props.data;
-    const forecastHours = new Date((weather.data.forecast.forecastday[0].hour[12].time_epoch)*1000);
-    const currentHours = props.currentHours;
-    let hours = forecastHours.getHours();
-    let dayPeriod;
-    if (props.isTwelveHours === true) {
-        dayPeriod = hours >= 12 ? "PM" : "AM";
-        hours = (hours % 12) || 12;
+    const forecastHours = (new Date((weather.time_epoch)*1000)).getHours();
+    const isTemperatureCelcius = props.isCelcius;
+    const isTwelveHours = props.isTwelveHours
+    const conditionPath = ((weather.condition.icon).substring(2)).replace("cdn.weatherapi.com", "")
+    let dayPeriod = forecastHours >= 12 ? "PM" : "AM";
+    const temperature = isTemperatureCelcius ? weather.temp_c : weather.temp_f;
+    let hours = forecastHours;
+    const ultravioletIndex = weather.uv;
+
+
+    if (isTwelveHours === true) {
+        hours = (forecastHours % 12) || 12;
     }
-    if (hours == currentHours || hours > currentHours){
         return (
             <div className="timeline__period">
                 <div className="period__hour">
-                Now
+                    {hours}{isTwelveHours ? dayPeriod : ":00"}
                 </div>
                 <div className="period__condition">
-                O
+                    <img src={conditionPath} alt="weather condition"/>
                 </div>
                 <div className="period__temperature">
-                76°
+                    {temperature}°
+                </div>
+                <div 
+                className="period__uvDanger"
+                style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
+                >
+                    {ultravioletIndex > 3 ? (ultravioletIndex + "UV") : ""}
                 </div>
             </div>
         )
-    }
     
 
 }
