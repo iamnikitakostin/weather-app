@@ -15,7 +15,7 @@ function ForecastWeatherDay(props) {
     const temperatureLow = isTemperatureCelcius ? props.data.day.mintemp_c : props.data.day.mintemp_f;
     const temperatureHigh = isTemperatureCelcius ? props.data.day.maxtemp_c : props.data.day.maxtemp_f;
     const ultravioletIndex = props.data.day.uv;
-    const conditionPath = ((props.data.day.condition.icon).substring(2)).replace("cdn.weatherapi.com", "")
+    const conditionPath = ((props.data.day.condition.icon).substring(2)).replace("cdn.weatherapi.com", ".")
 
     return (
         <div className="grouping__day">
@@ -35,6 +35,7 @@ function ForecastWeatherDay(props) {
             </div>
             <div className="day__temperature">
                 <div className="temperature__low">{temperatureLow}°</div>
+                <div className="divider__vertical"/>
                 <div className="temperature__high">{temperatureHigh}°</div>
             </div>
         </div>

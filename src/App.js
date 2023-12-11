@@ -142,7 +142,7 @@ function App() {
   const EnhancedAirQuality = withLoading(AirQuality);
 
   return (
-    <div className="App" style={{backgroundImage: `url(/weather/background/${backgroundImage}.svg`}}>
+    <div className="App" style={{backgroundImage: `url(./weather/background/${backgroundImage}.svg`}}>
       <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours}}>
         <div className="app__header">
           <EnhancedCurrentWeather/>

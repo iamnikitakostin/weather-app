@@ -191,13 +191,20 @@
   display: flex;
   flex-direction: row;
   justify-self: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 20%;
+  width: 30%;
 }
 
-.temperature__low, .temperature__line, .temperature__high {
+.divider__vertical {
+  height: 1rem;
+  width: 1px;
+  border: 1px solid white;
+}
+
+.temperature__low, .temperature__high {
   text-align: left;
-  width: 100%;
+  width: 20%;
 }
 
 .day__details {
@@ -279,3 +286,4 @@
   align-items: center;  
   margin-top: 0.5rem;
 }
+

@@ -5,7 +5,7 @@ function HourlyWeatherHour(props) {
     const forecastHours = (new Date((weather.time_epoch)*1000)).getHours();
     const isTemperatureCelcius = props.isCelcius;
     const isTwelveHours = props.isTwelveHours
-    const conditionPath = ((weather.condition.icon).substring(2)).replace("cdn.weatherapi.com", "")
+    const conditionPath = ((weather.condition.icon).substring(2)).replace("cdn.weatherapi.com", ".")
     let dayPeriod = forecastHours >= 12 ? "PM" : "AM";
     const temperature = isTemperatureCelcius ? weather.temp_c : weather.temp_f;
     let hours = forecastHours;

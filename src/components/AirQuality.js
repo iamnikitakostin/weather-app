@@ -3,7 +3,7 @@ import React from 'react'
 function AirQuality(props) {
     const weather = props.weather;
     const airQuality = weather.data.current.air_quality["us-epa-index"];
-    const iconAirQuality = "/weather/64x64/air_quality/" + airQuality + ".png";
+    const iconAirQuality = "./weather/64x64/air_quality/" + airQuality + ".png";
     let statementAirQuality;
     switch(airQuality) {
         case 1:
