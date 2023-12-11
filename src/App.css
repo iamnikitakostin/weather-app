@@ -1,14 +1,35 @@
 .App {
+  width: 100%;
   height: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #145a98;
   color: #ffffff;
   gap: 3rem;
   padding-top: 5rem;
+  background-color: #145a98;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position-x: center;
+  background-position-y: 2%;
+  background-blend-mode: overlay;
+}
+
+.app__header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.weather__settings {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .weather__hourly {
@@ -67,6 +88,7 @@
 
 .weather__today {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -77,15 +99,7 @@
   padding: 1rem;
 }
 
-.weather__settings {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  align-self: flex-start;
-  top: 5rem;
-  left: 1rem;
-  padding: 1rem;
-}
+
 
 .today__location {
   font-size: x-large;

@@ -28,8 +28,8 @@ function Settings(props) {
                 uncheckedIcon={false}
                 checkedIcon={false}
                 id="switch-hours"
-                offColor="#0000"
-                onColor="#0000"
+                offColor="#000"
+                onColor="#000"
                 />
             </div>
             <div className="settings__temperature">
@@ -40,8 +40,8 @@ function Settings(props) {
                 uncheckedIcon={false}
                 checkedIcon={false}
                 id="switch-temperature"
-                offColor="#0000"
-                onColor="#0000"
+                offColor="#000"
+                onColor="#000"
                 />
             </div>
         </div>

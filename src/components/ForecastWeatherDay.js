@@ -2,7 +2,6 @@ import React from 'react'
 
 function ForecastWeatherDay(props) {
     let dayOfWeekTitle;
-    console.log("day", props.data.date, props.today)
     if(props.data.date === props.today) {
         dayOfWeekTitle = "Today";
     }
