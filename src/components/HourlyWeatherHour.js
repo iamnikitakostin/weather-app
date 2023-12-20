@@ -26,7 +26,7 @@ function HourlyWeatherHour(props) {
                 <div className="period__temperature">
                     {temperature}°
                 </div>
-                <div 
+                <div
                 className="period__uvDanger"
                 style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
                 >
@@ -34,7 +34,7 @@ function HourlyWeatherHour(props) {
                 </div>
             </div>
         )
-    
+
 
 }
 

@@ -26,7 +26,7 @@ function AirQuality(props) {
             break;
         default:
             statementAirQuality = "Error. Please, check your Internet connection.";
-            break;   
+            break;
     }
   return (
     <div className="weather__airquality">
@@ -42,7 +42,7 @@ function AirQuality(props) {
                 </div>
             </div>
             <div className="details__icon">
-                <img src={iconAirQuality}/>
+                <img src={iconAirQuality} alt='air quality'/>
             </div>
 
         </div>

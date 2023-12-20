@@ -66,8 +66,7 @@ function background(weather) {
       return "snowy-1";
     case 1216:
     case 1219:
-      return "snowy-2";  
-      
+      return "snowy-2";
     case 1222:
     case 1225:
       return "snowy-3";
@@ -99,11 +98,9 @@ function background(weather) {
       return "scattered-thunderstorms";
     case 1282:
       return "scattered-thunderstorms";
-        
     default:
       return "error";
   }
-  
 }
 
 
@@ -122,7 +119,8 @@ function App() {
       const responseJSON = await response.json();
       if (responseJSON.current.hasOwnProperty("last_updated") && responseJSON.location.hasOwnProperty("name") && responseJSON.forecast.hasOwnProperty("forecastday")){
         setData(responseJSON);
-        setIsLoading(false);      
+        setIsLoading(false);
+        console.log("response,", responseJSON)
         setBackgroundImage(background(responseJSON.current.condition.code));
       }
       else{

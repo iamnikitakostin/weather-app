@@ -9,20 +9,19 @@ function ForecastWeather(props) {
   return (
     <div className="weather__forecast">
       <div className="forecast__title">
-        10-DAY FORECAST
+        3-DAY FORECAST
       </div>
       <div className="horizontal__divider"></div>
       <div className="forecast__days">
         {forecastDays.map((day) =>
         (
-          <ForecastWeatherDay 
-          key={day.date} 
-          data={day} 
-          weekDays={weekDays} 
+          <ForecastWeatherDay
+          key={day.date}
+          data={day}
+          weekDays={weekDays}
           today={today}
           isCelcius={isCelcius}
           />
-          
         )
         )}
       </div>
