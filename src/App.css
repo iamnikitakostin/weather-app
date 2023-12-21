@@ -25,6 +25,15 @@
   justify-content: center;
 }
 
+.app__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 80%;
+  height: 20vh;
+  padding: 2rem 0 2rem 0
+}
 
 .weather__settings {
   display: flex;
@@ -38,7 +47,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   border: 0;
   border-radius: 1rem;
   padding: 1rem;
@@ -47,8 +56,8 @@
 }
 
 .weather__airquality {
-  width: 40%;
-  height: 10%;
+  width: 50%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -67,6 +76,21 @@
   height: 100%;
   width: 100%;
   justify-content: space-between;
+}
+
+.weather__humidity {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: center;
+  border: 0;
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 80%;
+  background-color: rgba(0,0,0,0.05);
+  gap: 1rem;
 }
 
 .data__score {

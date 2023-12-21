@@ -8,54 +8,52 @@ import { useEffect, useState } from 'react';
 import withLoading from "./components/withLoading";
 import Settings from "./components/Settings";
 import AirQuality from "./components/AirQuality";
+import Humidity from "./components/Humidity"
 
-function background(weather) {
+function background(weather, isDay) {
   switch(weather) {
     case 1000:
-      return "clear-day";
+      return isDay === 1 ? "clear-day" : "clear-night";
     case 1003:
-      return "cloudy-1-day";
+      return isDay === 1 ? "cloudy-1-day" : "cloudy-1-night";
     case 1006:
-      return "cloudy";
+      return isDay === 1 ? "cloudy" : "cloudy-1-night";
     case 1009:
-      return "cloudy-3-day";
+      return isDay === 1 ? "cloudy-3-day" : "cloudy-3-night";
     case 1030:
-      return "fog";
+      return isDay === 1 ? "fog" : "fog-night";
     case 1063:
-      return "rainy-1-day";
+      return isDay === 1 ? "rainy-1-day" : "rainy-1-night";
     case 1066:
-      return "snowy-1-day";
+      return isDay === 1 ? "snowy-1-day" : "snowy-1-night";
     case 1069:
       return "hail";
-
     case 1072:
       return "rain-and-sleet-mix";
     case 1087:
-      return "isolated-thunderstorms";
+      return isDay === 1 ? "isolated-thunderstorms-day" : "isolated-thunderstorms-night";
     case 1114:
     case 1117:
-      return "snowy-3";
+      return isDay === 1 ? "snowy-3-day" : "snowy-3-night";
     case 1135:
     case 1147:
-      return "fog";
+      return isDay === 1 ? "fog-day" : "fog-night";
     case 1150:
-      return "rainy-1";
+      return isDay === 1 ? "rainy-1-day" : "rainy-1-night";
     case 1153:
-      return "rainy-2";
-
+      return isDay === 1 ? "rainy-2-day" : "rainy-2-night";
     case 1168:
     case 1171:
       return "rain-and-sleet-mix";
     case 1180:
     case 1183:
-      return "rainy-1";
+      return isDay === 1 ? "rainy-1-day" : "rainy-1-night";
     case 1186:
     case 1189:
-      return "rainy-2";
+      return isDay === 1 ? "rainy-2-day" : "rainy-2-night";
     case 1192:
     case 1195:
-      return "rainy-3";
-
+      return isDay === 1 ? "rainy-3-day" : "rainy-3-night";
     case 1198:
     case 1201:
     case 1204:
@@ -63,41 +61,37 @@ function background(weather) {
       return "rain-and-sleet-mix";
     case 1210:
     case 1213:
-      return "snowy-1";
+      return isDay === 1 ? "snowy-1-day" : "snowy-1-night";
     case 1216:
     case 1219:
-      return "snowy-2";
+      return isDay === 1 ? "snowy-2-day" : "snowy-2-night";
     case 1222:
     case 1225:
-      return "snowy-3";
+      return isDay === 1 ? "snowy-3-day" : "snowy-3-night";
     case 1237:
-      return "frost";
+      return isDay === 1 ? "frost-1-day" : "frost-1-night";
     case 1240:
-      return "rainy-1";
+      return isDay === 1 ? "rainy-1-day" : "rainy-1-night";
     case 1243:
-      return "rainy-2";
+      return isDay === 1 ? "rainy-2-day" : "rainy-2-night";
     case 1246:
-      return "rainy-3";
+      return isDay === 1 ? "rainy-3-day" : "rainy-3-night";
     case 1249:
     case 1252:
       return "rain-and-sleet-mix";
-
     case 1255:
-      return "snowy-1";
+      return isDay === 1 ? "snowy-1-day" : "snowy-1-night";
     case 1258:
-      return "snowy-3";
+      return isDay === 1 ? "snowy-3-day" : "snowy-3-night";
     case 1261:
       return "hail";
     case 1264:
       return "hail";
     case 1273:
-      return "scattered-thunderstorms";
     case 1276:
-      return "scattered-thunderstorms";
     case 1279:
-      return "scattered-thunderstorms";
     case 1282:
-      return "scattered-thunderstorms";
+      return isDay === 1 ? "scattered-thunderstorms-day" : "scattered-thunderstorms-night";
     default:
       return "error";
   }
@@ -121,7 +115,7 @@ function App() {
         setData(responseJSON);
         setIsLoading(false);
         console.log("response,", responseJSON)
-        setBackgroundImage(background(responseJSON.current.condition.code));
+        setBackgroundImage(background(responseJSON.current.condition.code, responseJSON.current.is_day));
       }
       else{
         console.log("Something went wrong. Please check your API key and if the API is down.")
@@ -138,6 +132,7 @@ function App() {
   const EnhancedCurrentWeather = withLoading(CurrentWeather);
   const EnhancedHourlyWeather = withLoading(HourlyWeather);
   const EnhancedAirQuality = withLoading(AirQuality);
+  const EnhancedHumidity = withLoading(Humidity)
 
   return (
     <div className="App" style={{backgroundImage: `url(./weather/background/${backgroundImage}.svg`}}>
@@ -148,7 +143,10 @@ function App() {
         </div>
         <EnhancedHourlyWeather/>
         <EnhancedForecastWeather/>
-        <EnhancedAirQuality/>
+        <div className="app__footer">
+          <EnhancedAirQuality/>
+          <EnhancedHumidity/>
+        </div>
       </AppContext.Provider>
     </div>
   );

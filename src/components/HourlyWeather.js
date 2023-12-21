@@ -2,7 +2,6 @@ import HourlyWeatherHour from "./HourlyWeatherHour";
 
 function HourlyWeather(props) {
 
-  
   const weather = props.weather;
   const currentHours = parseInt(weather.data.location.localtime_epoch);
 
@@ -29,7 +28,7 @@ function HourlyWeather(props) {
   return (
     <div className="weather__hourly">
       <div className="hourly__conditions">
-        Today, {forecastDays[0].day.condition.text} with {forecastDays[0].day.avghumidity}% of humidity
+        Today, {forecastDays[0].day.condition.text} with an average of {forecastDays[0].day.avghumidity}% humidity.
       </div>
       <div className="horizontal__divider"></div>
       <div className="hourly__timeline">
