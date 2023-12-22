@@ -1,6 +1,7 @@
 import React from 'react'
 import HoursSwitch from "react-switch";
 import TemperatureSwitch from "react-switch";
+import "./Settings.css"
 
 function Settings(props) {
     const isCelcius = props.isCelcius;
@@ -22,8 +23,8 @@ function Settings(props) {
         <div className="weather__settings">
             <div className="settings__hours">
                 <label className="label" htmlFor="switch-hours">24H/12H</label>
-                <HoursSwitch 
-                checked={isTwelveHours} 
+                <HoursSwitch
+                checked={isTwelveHours}
                 onChange={hoursOnChange}
                 uncheckedIcon={false}
                 checkedIcon={false}
@@ -34,8 +35,8 @@ function Settings(props) {
             </div>
             <div className="settings__temperature">
                 <label className="label" htmlFor="switch-temperature">F/C</label>
-                <TemperatureSwitch 
-                checked={isCelcius} 
+                <TemperatureSwitch
+                checked={isCelcius}
                 onChange={temperatureOnChange}
                 uncheckedIcon={false}
                 checkedIcon={false}

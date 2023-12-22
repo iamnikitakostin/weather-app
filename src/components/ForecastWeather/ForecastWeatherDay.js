@@ -4,9 +4,7 @@ function ForecastWeatherDay(props) {
     let dayOfWeekTitle;
     if(props.data.date === props.today) {
         dayOfWeekTitle = "Today";
-    }
-    else 
-    {
+    } else {
         const dateFormatted = new Date(props.data.date);
         const dayOfWeekNumber = dateFormatted.getUTCDay();
         dayOfWeekTitle = props.weekDays[dayOfWeekNumber];
@@ -26,8 +24,8 @@ function ForecastWeatherDay(props) {
                 <div className="details__condition">
                     <img src={conditionPath} alt="weather condition"/> 
                 </div>
-                <div 
-                className="details__uv" 
+                <div
+                className="details__uv"
                 style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
                 >
                     {ultravioletIndex > 3 ? (ultravioletIndex + "UV") : ""}

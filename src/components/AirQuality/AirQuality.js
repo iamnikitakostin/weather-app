@@ -1,4 +1,5 @@
 import React from 'react'
+import "./AirQuality.css"
 
 function AirQuality(props) {
     const weather = props.weather;
@@ -31,7 +32,7 @@ function AirQuality(props) {
   return (
     <div className="weather__airquality">
         <div className="airquality__title">
-            AirQuality
+            Air Quality
         </div>
         <div className="airquality__details">
             <div className="details__data">

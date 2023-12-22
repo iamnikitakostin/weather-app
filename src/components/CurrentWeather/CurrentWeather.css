@@ -1,0 +1,27 @@
+.weather__today {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.today__location {
+    font-size: x-large;
+}
+
+.today__temperature {
+    font-size: xx-large;
+}
+
+  .today__condition {
+    font-size: medium;
+}
+
+.today__range {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    gap: 0.5rem;
+}

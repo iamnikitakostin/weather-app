@@ -1,13 +1,13 @@
 import HourlyWeatherHour from "./HourlyWeatherHour";
 
+import "./HourlyWeather.css"
+
 function HourlyWeather(props) {
 
   const weather = props.weather;
   const currentHours = parseInt(weather.data.location.localtime_epoch);
-
   const isCelcius = weather.isCelcius;
   const isTwelveHours = weather.isTwelveHours;
-
   const displayedHours = [];
   const forecastDays = weather.data.forecast.forecastday;
   let i = 0, day = 0;

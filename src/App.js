@@ -1,14 +1,14 @@
-import CurrentWeather from "./components/CurrentWeather";
-import ForecastWeather from "./components/ForecastWeather";
-import HourlyWeather from "./components/HourlyWeather";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import ForecastWeather from "./components/ForecastWeather/ForecastWeather";
+import HourlyWeather from "./components/HourlyWeather/HourlyWeather";
 import "./App.css";
-import { AppContext } from "./components/AppContext";
-import useLocation from './components/useLocation';
+import { AppContext } from "./components/AppContext/AppContext";
+import useLocation from './components/useLocation/useLocation';
 import { useEffect, useState } from 'react';
-import withLoading from "./components/withLoading";
-import Settings from "./components/Settings";
-import AirQuality from "./components/AirQuality";
-import Humidity from "./components/Humidity"
+import withLoading from "./components/withLoading/withLoading";
+import Settings from "./components/Settings/Settings";
+import AirQuality from "./components/AirQuality/AirQuality";
+import Humidity from "./components/Humidity/Humidity"
 
 function background(weather, isDay) {
   switch(weather) {

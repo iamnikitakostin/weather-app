@@ -1,0 +1,56 @@
+.weather__humidity {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    border: 0;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 80%;
+    background-color: rgba(0,0,0,0.05);
+    gap: 1rem;
+}
+
+.weather__humidity-percentage {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    border-radius: 1rem;
+    top: 0;
+    left: 0;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    z-index: 0;
+}
+
+.percentage__progress {
+    position: relative;
+    height: 100%;
+    background-color: blue;
+    border: 0;
+    border-radius: 1rem;
+}
+
+.humidity__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    z-index: 1;
+}
+
+.details__data {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.data__score {
+    width: 100%;
+}

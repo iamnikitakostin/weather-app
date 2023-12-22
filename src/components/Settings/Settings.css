@@ -1,0 +1,18 @@
+.weather__settings {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.settings__hours {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings__temperature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}

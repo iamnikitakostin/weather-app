@@ -1,5 +1,7 @@
 import ForecastWeatherDay from './ForecastWeatherDay';
 
+import "./ForecastWeather.css"
+
 function ForecastWeather(props) {
   const weekDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
   const weather = props.weather;
@@ -11,7 +13,7 @@ function ForecastWeather(props) {
       <div className="forecast__title">
         3-DAY FORECAST
       </div>
-      <div className="horizontal__divider"></div>
+      <div className="horizontal__divider"/>
       <div className="forecast__days">
         {forecastDays.map((day) =>
         (

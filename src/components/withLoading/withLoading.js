@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { AppContext } from "./AppContext"
+import { AppContext } from "../AppContext/AppContext"
 
 function withLoading(WrappedComponent) {
   return (props) => {
@@ -14,7 +14,7 @@ function withLoading(WrappedComponent) {
 
     return (
         <>
-            {isLoading ? 
+            {isLoading ?
                 (
                     <div>
                         Loading...
@@ -24,7 +24,7 @@ function withLoading(WrappedComponent) {
                 (
                     <WrappedComponent {...props} weather={context}/>
                 )
-            }   
+            }
         </>
     )
     }
