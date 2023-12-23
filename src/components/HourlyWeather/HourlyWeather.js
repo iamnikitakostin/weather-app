@@ -27,9 +27,9 @@ function HourlyWeather(props) {
 
   return (
     <div className="weather__hourly">
-      <div className="hourly__conditions">
+      <p className="p__georgia">
         Today, {forecastDays[0].day.condition.text} with an average of {forecastDays[0].day.avghumidity}% humidity.
-      </div>
+      </p>
       <div className="horizontal__divider"></div>
       <div className="hourly__timeline">
         {displayedHours.map((element) => (

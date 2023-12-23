@@ -22,7 +22,7 @@ function Settings(props) {
     return (
         <div className="weather__settings">
             <div className="settings__hours">
-                <label className="label" htmlFor="switch-hours">24H/12H</label>
+                <label className="p__arial" htmlFor="switch-hours">24H</label>
                 <HoursSwitch
                 checked={isTwelveHours}
                 onChange={hoursOnChange}
@@ -32,9 +32,10 @@ function Settings(props) {
                 offColor="#000"
                 onColor="#000"
                 />
+                <label className="p__arial" htmlFor="switch-hours">12H</label>
             </div>
             <div className="settings__temperature">
-                <label className="label" htmlFor="switch-temperature">F/C</label>
+                <label className="p__arial" htmlFor="switch-temperature">F</label>
                 <TemperatureSwitch
                 checked={isCelcius}
                 onChange={temperatureOnChange}
@@ -44,6 +45,7 @@ function Settings(props) {
                 offColor="#000"
                 onColor="#000"
                 />
+                <label className="p__arial" htmlFor="switch-temperature">C</label>
             </div>
         </div>
   )

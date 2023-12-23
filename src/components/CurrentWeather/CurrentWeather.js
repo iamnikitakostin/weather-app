@@ -8,22 +8,20 @@ function CurrentWeather(props) {
     const temperatureCurrent = isTemperatureCelcius ? weather.data.current.temp_c : weather.data.current.temp_f;
     return (
         <div className="weather__today">
-            <div className="today__location">
-                {weather.data.location.name}
-            </div>
-            <div className="today__temperature">
+            <h1 className="headtext__arial">{weather.data.location.name}</h1>
+            <p className="headtext__arial">
                 {temperatureCurrent}°
-            </div>
-            <div className="today__condition">
+            </p>
+            <p className="p__georgia">
                 {weather.data.current.condition.text}
-            </div>
+            </p>
             <div className="today__range">
-                <div className="range__high">
+                <p className="p__georgia">
                     H:{temperatureHigh}°
-                </div>
-                <div className="range__low">
+                </p>
+                <p className="p__georgia">
                     L:{temperatureLow}°
-                </div>
+                </p>
             </div>
         </div>
     )

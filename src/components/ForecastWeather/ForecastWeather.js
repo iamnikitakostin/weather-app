@@ -10,9 +10,9 @@ function ForecastWeather(props) {
   const today = (weather.data.location.localtime).slice(0,10);
   return (
     <div className="weather__forecast">
-      <div className="forecast__title">
+      <h1 className="p__arial">
         3-DAY FORECAST
-      </div>
+      </h1>
       <div className="horizontal__divider"/>
       <div className="forecast__days">
         {forecastDays.map((day) =>

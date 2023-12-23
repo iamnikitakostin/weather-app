@@ -18,23 +18,26 @@ function ForecastWeatherDay(props) {
     return (
         <div className="grouping__day">
             <div className="day__details">
-                <div className="details__name">
+                <p className="details__name p__georgia">
                     {dayOfWeekTitle}
-                </div>
+                </p>
                 <div className="details__condition">
-                    <img src={conditionPath} alt="weather condition"/> 
+                    <p
+                    className="details__condition-uv p__georgia"
+                    style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
+                    >
+                        {ultravioletIndex > 0 ? (ultravioletIndex + "UV") : ""}
+                    </p>
+                    <div className="details__condition-image">
+                        <img src={conditionPath} alt="weather condition"/>
+                    </div>
                 </div>
-                <div
-                className="details__uv"
-                style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
-                >
-                    {ultravioletIndex > 3 ? (ultravioletIndex + "UV") : ""}
-                </div>
+
             </div>
             <div className="day__temperature">
-                <div className="temperature__low">{temperatureLow}°</div>
+                <p className="p__georgia">{temperatureLow}°</p>
                 <div className="divider__vertical"/>
-                <div className="temperature__high">{temperatureHigh}°</div>
+                <p className="p__georgia">{temperatureHigh}°</p>
             </div>
         </div>
     )

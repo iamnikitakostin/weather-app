@@ -6,13 +6,21 @@
 
 .settings__hours {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.settings__hours label {
+    padding: 0 0.5rem 0 0.5rem;
 }
 
 .settings__temperature {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 0.5rem;
+}
+
+.settings__temperature label {
+    padding: 0 0.5rem 0 0.5rem;
 }

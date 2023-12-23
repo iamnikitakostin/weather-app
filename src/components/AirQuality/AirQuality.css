@@ -1,22 +1,20 @@
 .weather__airquality {
     width: 50%;
-    height: 80%;
+    height: calc(4vw + 20vh + 2vmin);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    align-self: center;
     border: 0;
     border-radius: 1rem;
     padding: 1rem;
-    background-color: rgba(0,0,0,0.05);
+    background-color: var(--color-sectionBg);
     gap: 1rem;
 }
 
 .airquality__details {
     display: flex;
     flex-direction: row;
-    height: 100%;
     width: 100%;
     justify-content: space-between;
 }
@@ -24,9 +22,10 @@
 .details__icon {
     display: flex;
     height: 100%;
-    width: 30%;
+    width: 50%;
     align-items: center;
     justify-content: center;
+    padding-left: 1rem;
 }
 
 .details__icon > img {

@@ -1,15 +1,13 @@
 .App {
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  gap: 1rem;
+  color: var(--color-white);
+  gap: 2rem;
   padding-top: 5rem;
-  background-color: #145a98;
+  background-color: var(--color-blue);
   background-repeat: no-repeat;
   background-size: 50%;
   background-position-x: 15%;
@@ -31,18 +29,99 @@
   align-items: center;
   gap: 1rem;
   width: 80%;
-  height: 20vh;
   padding: 2rem 0 2rem 0
 }
 
 .divider__vertical {
   height: 0.5rem;
   width: 1px;
-  border: 1px solid white;
+  border: 1px solid var(--color-white);
 }
 
 .horizontal__divider {
   width: 100%;
   height: 1px;
   background-color: rgba(255,255,255,0.3);
+}
+
+.p__arial {
+  font-family: var(--font-base);
+  color: var(--color-white);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.p__georgia {
+  font-family: var(--font-alt);
+  color: var(--color-white);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+.headtext__arial {
+  font-family: var(--font-base);
+  color: var(--color-white);
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: 0.04em;
+}
+
+.headtext__georgia {
+  font-family: var(--font-alt);
+  color: var(--color-white);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 32px;
+  font-size: 32px;
+}
+
+
+@media screen and (min-width: 2000px) {
+  .p__arial {
+    font-size: 37px;
+    line-height: 67px;
+  }
+
+  .p__georgia {
+    font-size: 30px;
+    line-height: 50px;
+  }
+
+  .headtext__arial {
+    font-size: 150px;
+    line-height: 210px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+
+}
+
+@media screen and (max-width: 850px) {
+
+}
+
+@media screen and (max-width: 650px) {
+  .p__arial {
+    font-size: 18px;
+  }
+
+  .p__georgia {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .p__georgia {
+    font-size: 14px;
+  }
+
+  .p__arial {
+    font-size: 16px;
+  }
+
 }

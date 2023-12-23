@@ -31,24 +31,20 @@ function AirQuality(props) {
     }
   return (
     <div className="weather__airquality">
-        <div className="airquality__title">
+        <h1 className="p__arial">
             Air Quality
-        </div>
+        </h1>
+        <div className='horizontal__divider'/>
         <div className="airquality__details">
             <div className="details__data">
-                <div className="data__score">
+                <div className="p__georgia">
                     {airQuality} - {statementAirQuality}
-                </div>
-                <div className="data__description">
                 </div>
             </div>
             <div className="details__icon">
                 <img src={iconAirQuality} alt='air quality'/>
             </div>
-
         </div>
-
-
     </div>
   )
 }

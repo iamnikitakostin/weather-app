@@ -17,21 +17,22 @@ function HourlyWeatherHour(props) {
     }
         return (
             <div className="timeline__period">
-                <div className="period__hour">
+                <p className="period__hour p__arial">
                     {hours}{isTwelveHours ? dayPeriod : ":00"}
-                </div>
+                </p>
                 <div className="period__condition">
                     <img src={conditionPath} alt="weather condition"/>
                 </div>
-                <div className="period__temperature">
-                    {temperature}°
-                </div>
                 <div
-                className="period__uvDanger"
+                className="period__uvDanger p__arial"
                 style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
                 >
-                    {ultravioletIndex > 3 ? (ultravioletIndex + "UV") : ""}
+                    {ultravioletIndex > 2 ? (ultravioletIndex + "UV") : ""}
                 </div>
+                <div className="period__temperature p__georgia">
+                    {temperature}°
+                </div>
+
             </div>
         )
 
