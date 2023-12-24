@@ -17,6 +17,7 @@
 
 .grouping__day {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -26,10 +27,8 @@
 .day__temperature {
     display: flex;
     flex-direction: row;
-    justify-self: flex-start;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 0.5rem;
     width: 30%;
 }
 
@@ -64,4 +63,22 @@
 .details__name {
     text-align: left;
     vertical-align: baseline;
+}
+
+.day__temperature-percentage {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    width: 30%;
+    height: 1rem;
+    border-radius: 1rem;
+    background-color: #0c3356;
+}
+
+.temperature__percentage-progress {
+    position: relative;
+    left: 75%;
+    height: 100%;
+    background-color: blue;
+    border-radius: 1rem;
 }

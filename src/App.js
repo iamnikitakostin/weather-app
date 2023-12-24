@@ -110,14 +110,29 @@ function App() {
   const [isCelcius, setIsCelcius] = useState(true);
   const [isTwelveHours, setIsTwelveHours] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState(null);
+  const [forecastAverage, setForecastAverage] = useState(null);
 
   async function weatherCall() {
     const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${location.latitude},${location.longitude}&days=3&aqi=yes`);
     const responseJSON = await response.json();
     if (responseJSON.current.hasOwnProperty("last_updated") && responseJSON.location.hasOwnProperty("name") && responseJSON.forecast.hasOwnProperty("forecastday")){
       setData(responseJSON);
+      console.log(responseJSON)
       setIsLoading(false);
       setBackgroundImage(background(responseJSON.current.condition.code, responseJSON.current.is_day));
+      const temporaryForecastAverage = {mintemp: null, maxtemp: null};
+      responseJSON.forecast.forecastday.forEach((element) => {
+        console.log(element)
+        if (element.day.mintemp_c < temporaryForecastAverage.mintemp || element.day.maxtemp_c > temporaryForecastAverage.mintemp) {
+          if (element.day.mintemp_c < temporaryForecastAverage.mintemp || temporaryForecastAverage.mintemp === null) {
+            temporaryForecastAverage.mintemp = element.day.mintemp_c;
+          }
+          else {
+            temporaryForecastAverage.maxtemp = element.day.maxtemp_c;
+          }
+        }
+      })
+      setForecastAverage(temporaryForecastAverage)
     }
     else{
       console.log("Something went wrong. Please check your API key and if the API is down.")
@@ -144,7 +159,7 @@ function App() {
 
   return (
     <div className="App" style={{backgroundImage: `url(./weather/background/${backgroundImage}.svg`}}>
-      <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours}}>
+      <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours, forecastAverage}}>
         <div className="app__header">
           <EnhancedCurrentWeather/>
           <Settings isCelcius={isCelcius} isTwelveHours={isTwelveHours} setIsCelcius={setIsCelcius} setIsTwelveHours={setIsTwelveHours}/>

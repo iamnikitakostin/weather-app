@@ -30,7 +30,7 @@ function HourlyWeatherHour(props) {
                     {ultravioletIndex > 2 ? (ultravioletIndex + "UV") : ""}
                 </div>
                 <div className="period__temperature p__georgia">
-                    {temperature}°
+                    {temperature.toFixed(1)}°
                 </div>
 
             </div>

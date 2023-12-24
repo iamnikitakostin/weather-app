@@ -17,10 +17,10 @@ function CurrentWeather(props) {
             </p>
             <div className="today__range">
                 <p className="p__georgia">
-                    H:{temperatureHigh}°
+                    H:{temperatureHigh.toFixed(1)}°
                 </p>
                 <p className="p__georgia">
-                    L:{temperatureLow}°
+                    L:{temperatureLow.toFixed(1)}°
                 </p>
             </div>
         </div>

@@ -8,6 +8,7 @@ function ForecastWeather(props) {
   const forecastDays = weather.data.forecast.forecastday;
   const isCelcius = weather.isCelcius;
   const today = (weather.data.location.localtime).slice(0,10);
+  const forecastAverage = weather.forecastAverage;
   return (
     <div className="weather__forecast">
       <h1 className="p__arial">
@@ -23,6 +24,7 @@ function ForecastWeather(props) {
           weekDays={weekDays}
           today={today}
           isCelcius={isCelcius}
+          forecastAverage={forecastAverage}
           />
         )
         )}
