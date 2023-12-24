@@ -148,7 +148,7 @@ function App() {
         <div className="app__header">
           <EnhancedCurrentWeather/>
           <Settings isCelcius={isCelcius} isTwelveHours={isTwelveHours} setIsCelcius={setIsCelcius} setIsTwelveHours={setIsTwelveHours}/>
-          <ChangeCity setLocation={setLocation}/>
+          <ChangeCity setLocation={setLocation} isLoading={isLoading}/>
         </div>
         <EnhancedHourlyWeather/>
         <EnhancedForecastWeather/>
