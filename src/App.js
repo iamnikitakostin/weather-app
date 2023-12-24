@@ -9,6 +9,7 @@ import withLoading from "./components/withLoading/withLoading";
 import Settings from "./components/Settings/Settings";
 import AirQuality from "./components/AirQuality/AirQuality";
 import Humidity from "./components/Humidity/Humidity"
+import ChangeCity from "./components/ChangeCity/ChangeCity";
 
 function background(weather, isDay) {
   switch(weather) {
@@ -98,10 +99,12 @@ function background(weather, isDay) {
 }
 
 
+
 function App() {
   //API Key from https://weatherapi.com/
   const APIKey = "1e457b42e1a84bb983a02639233011";
-  const location = useLocation();
+  let initialLocation = useLocation();
+  const [location, setLocation] = useState();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [isCelcius, setIsCelcius] = useState(true);
@@ -109,23 +112,28 @@ function App() {
   const [backgroundImage, setBackgroundImage] = useState(null);
 
   async function weatherCall() {
-      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${location.latitude},${location.longitude}&days=10&aqi=yes`)
-      const responseJSON = await response.json();
-      if (responseJSON.current.hasOwnProperty("last_updated") && responseJSON.location.hasOwnProperty("name") && responseJSON.forecast.hasOwnProperty("forecastday")){
-        setData(responseJSON);
-        setIsLoading(false);
-        console.log("response,", responseJSON)
-        setBackgroundImage(background(responseJSON.current.condition.code, responseJSON.current.is_day));
-      }
-      else{
-        console.log("Something went wrong. Please check your API key and if the API is down.")
-      }
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${location.latitude},${location.longitude}&days=3&aqi=yes`);
+    const responseJSON = await response.json();
+    if (responseJSON.current.hasOwnProperty("last_updated") && responseJSON.location.hasOwnProperty("name") && responseJSON.forecast.hasOwnProperty("forecastday")){
+      setData(responseJSON);
+      setIsLoading(false);
+      setBackgroundImage(background(responseJSON.current.condition.code, responseJSON.current.is_day));
+    }
+    else{
+      console.log("Something went wrong. Please check your API key and if the API is down.")
+    }
   }
+
   useEffect(() => {
-      if (location) {
-          weatherCall()
-      }
+    setLocation(initialLocation);
+  }, [initialLocation]);
+
+  useEffect(() => {
+    if (location) {
+      weatherCall()
+    }
   }, [location])
+
 
 
   const EnhancedForecastWeather = withLoading(ForecastWeather);
@@ -140,6 +148,7 @@ function App() {
         <div className="app__header">
           <EnhancedCurrentWeather/>
           <Settings isCelcius={isCelcius} isTwelveHours={isTwelveHours} setIsCelcius={setIsCelcius} setIsTwelveHours={setIsTwelveHours}/>
+          <ChangeCity setLocation={setLocation}/>
         </div>
         <EnhancedHourlyWeather/>
         <EnhancedForecastWeather/>

@@ -26,7 +26,7 @@ function ForecastWeatherDay(props) {
                     className="details__condition-uv p__georgia"
                     style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
                     >
-                        {ultravioletIndex > 0 ? (ultravioletIndex + "UV") : ""}
+                        {ultravioletIndex > 2 ? (ultravioletIndex + "UV") : ""}
                     </p>
                     <div className="details__condition-image">
                         <img src={conditionPath} alt="weather condition"/>
