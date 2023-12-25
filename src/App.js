@@ -123,14 +123,8 @@ function App() {
       const temporaryForecastAverage = {mintemp: null, maxtemp: null};
       responseJSON.forecast.forecastday.forEach((element) => {
         console.log(element)
-        if (element.day.mintemp_c < temporaryForecastAverage.mintemp || element.day.maxtemp_c > temporaryForecastAverage.mintemp) {
-          if (element.day.mintemp_c < temporaryForecastAverage.mintemp || temporaryForecastAverage.mintemp === null) {
-            temporaryForecastAverage.mintemp = element.day.mintemp_c;
-          }
-          else {
-            temporaryForecastAverage.maxtemp = element.day.maxtemp_c;
-          }
-        }
+        temporaryForecastAverage.mintemp = (temporaryForecastAverage.mintemp > element.day.mintemp_c || temporaryForecastAverage.mintemp === null) ? element.day.mintemp_c : temporaryForecastAverage.mintemp;
+        temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
       })
       setForecastAverage(temporaryForecastAverage)
     }

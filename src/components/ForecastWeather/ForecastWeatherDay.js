@@ -15,8 +15,10 @@ function ForecastWeatherDay(props) {
     const temperatureHigh = isTemperatureCelcius ? props.data.day.maxtemp_c : props.data.day.maxtemp_f;
     const ultravioletIndex = props.data.day.uv;
     const conditionPath = ((props.data.day.condition.icon).substring(2)).replace("cdn.weatherapi.com", ".")
-    const forecastAverage = props.forecastAverage;
-    const forecastAverageRange = forecastAverage.maxtemp - forecastAverage.mintemp;
+    const forecast = props.forecastAverage;
+    const forecastAverageRange = forecast.maxtemp - forecast.mintemp;
+    const styleBarLeft = (props.data.day.mintemp_c - forecast.mintemp)/forecastAverageRange*100;
+    const styleBarWidth = (100 - styleBarLeft) - ((forecast.maxtemp - props.data.day.maxtemp_c)/forecastAverageRange*100);
     return (
         <div className="grouping__day">
             <div className="day__details">
@@ -39,7 +41,13 @@ function ForecastWeatherDay(props) {
             <div className="day__temperature">
                 <p className="p__georgia">{temperatureLow.toFixed(1)}°</p>
                 <div className="day__temperature-percentage">
-                    <div className='temperature__percentage-progress' style={{width: `${((props.data.day.maxtemp_c - props.data.day.mintemp_c)/forecastAverageRange)*100}%`, left: `${((props.data.day.mintemp_c - forecastAverage.mintemp)/forecastAverageRange)*100}%`}}></div>
+                    <div className='temperature__percentage-progress'
+                    style={
+                        {
+                            width: `${styleBarWidth}%`,
+                            left: `${styleBarLeft}%`
+                        }
+                            }></div>
                 </div>
                 <p className="p__georgia">{temperatureHigh.toFixed(1)}°</p>
             </div>
