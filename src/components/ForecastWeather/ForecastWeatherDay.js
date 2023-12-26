@@ -28,8 +28,10 @@ function ForecastWeatherDay(props) {
                 <div className="details__condition">
                     <p
                     className="details__condition-uv p__georgia"
-                    style={ultravioletIndex > 7 ? {color:"red"} : {color:"yellow"}}
-                    >
+                    style={{
+                        color: ultravioletIndex > 7 ? "red" : "yellow",
+                        display: ultravioletIndex < 3 ? "none" : "inline"
+                      }}                    >
                         {ultravioletIndex > 2 ? (ultravioletIndex + "UV") : ""}
                     </p>
                     <div className="details__condition-image">

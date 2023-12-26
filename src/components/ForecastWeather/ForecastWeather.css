@@ -42,19 +42,21 @@
 
 .details__condition {
     display: flex;
-    justify-content: center;
+    width: 50px;
+    justify-content: flex-start;
     gap: 1rem;
     align-items: center;
-    width: 60%;
 }
 
 .details__condition-image {
-    width: 80%;
+    width: 100px;
+    display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
-.details__condition-image > img {
-    width: 50px;
+.details__condition-image img {
+    width: 100%;
 }
 
 .details__condition-uv {
@@ -103,20 +105,22 @@
 
 @media screen and (max-width: 750px) {
     .day__temperature-percentage {
-        width: 40px;
-        height: 10px;
+        width: 30px;
+        height: 5px;
+        margin: 0 0.5rem 0 0.5rem;
     }
 
     .day__temperature {
-        width: 60%;
+        width: 40%;
         justify-content: space-around;
     }
 
-    .details__condition-image {
-        width: 50%;
+    .details__condition p {
+        font-size: 12px;
     }
 
-    .details__condition {
-        width: 50%;
+    .details__condition-image {
+        width: 30px;
     }
+
 }

@@ -108,6 +108,7 @@ function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [isCelcius, setIsCelcius] = useState(true);
+  const [isDay, setIsDay] = useState(true);
   const [isTwelveHours, setIsTwelveHours] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState(null);
   const [forecastAverage, setForecastAverage] = useState(null);
@@ -117,14 +118,15 @@ function App() {
     const responseJSON = await response.json();
     if (responseJSON.current.hasOwnProperty("last_updated") && responseJSON.location.hasOwnProperty("name") && responseJSON.forecast.hasOwnProperty("forecastday")){
       setData(responseJSON);
-      console.log(responseJSON)
+      console.log(data)
       setIsLoading(false);
       setBackgroundImage(background(responseJSON.current.condition.code, responseJSON.current.is_day));
+      setIsDay(responseJSON.current.is_day === 1);
       const temporaryForecastAverage = {mintemp: null, maxtemp: null};
       responseJSON.forecast.forecastday.forEach((element) => {
-        console.log(element)
-        temporaryForecastAverage.mintemp = (temporaryForecastAverage.mintemp > element.day.mintemp_c || temporaryForecastAverage.mintemp === null) ? element.day.mintemp_c : temporaryForecastAverage.mintemp;
-        temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
+      console.log(element)
+      temporaryForecastAverage.mintemp = (temporaryForecastAverage.mintemp > element.day.mintemp_c || temporaryForecastAverage.mintemp === null) ? element.day.mintemp_c : temporaryForecastAverage.mintemp;
+      temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
       })
       setForecastAverage(temporaryForecastAverage)
     }
@@ -152,7 +154,13 @@ function App() {
   const EnhancedHumidity = withLoading(Humidity)
 
   return (
-    <div className="App" style={{backgroundImage: `url(./weather/background/${backgroundImage}.svg`}}>
+    <div className="App" style={
+      {
+      backgroundImage: `url(./weather/background/${backgroundImage}.svg`,
+      backgroundColor: `${isDay ? 'var(--color-blue)' : 'var(--color-blueNight'}`,
+      backgroundBlendMode: `${isDay ? 'overlay' : 'soft-light'}`,
+    }
+      }>
       <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours, forecastAverage}}>
         <div className="app__header">
           <EnhancedCurrentWeather/>

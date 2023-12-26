@@ -2,7 +2,7 @@ import React from 'react'
 
 function HourlyWeatherHour(props) {
     const weather = props.data;
-    const forecastHours = (new Date((weather.time_epoch)*1000)).getHours();
+    const forecastHours = parseInt(weather.time.slice(11,13));
     const isTemperatureCelcius = props.isCelcius;
     const isTwelveHours = props.isTwelveHours
     const conditionPath = ((weather.condition.icon).substring(2)).replace("cdn.weatherapi.com", ".")
@@ -10,7 +10,6 @@ function HourlyWeatherHour(props) {
     const temperature = isTemperatureCelcius ? weather.temp_c : weather.temp_f;
     let hours = forecastHours;
     const ultravioletIndex = weather.uv;
-
 
     if (isTwelveHours === true) {
         hours = (forecastHours % 12) || 12;
