@@ -10,6 +10,7 @@
     padding: 1rem;
     background-color: var(--color-sectionBg);
     gap: 1rem;
+    z-index: 2;
 }
 
 .hourly__timeline {

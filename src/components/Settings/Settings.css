@@ -24,3 +24,7 @@
 .settings__temperature label {
     padding: 0 0.5rem 0 0.5rem;
 }
+
+.settings__hours div, .settings__temperature div {
+    border: 1px solid black;
+}

@@ -2,11 +2,15 @@
   --font-base: Arial, serif;
   --font-alt: Georgia, sans-serif;
 
-  --color-blue: #145A98;
-  --color-blueNight: #012d51;
+  --color-blue: #2c67f2;
+  --color-blueNight: #0c1445;
   --color-black: #0C0C0C;
   --color-white: #FFFFFF;
-  --color-sectionBg: rgba(0,0,0,0.05);
+  --color-sectionBg: rgba(0,0,0,0.3);
+
+
+  --background-day: radial-gradient(circle, rgba(70,201,245,1) 15%, rgba(2,160,212,1) 30%, rgba(0,162,255,1) 45%, rgba(0,135,253,1) 60%, rgba(44,103,242,1) 75%);
+  --background-night: radial-gradient(circle, rgba(92,84,164,1) 5%, rgba(76,64,142,1) 18%, rgba(12,20,69,1) 75%);
 }
 
 * {

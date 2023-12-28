@@ -17,7 +17,7 @@
 
 .grouping__day {
     width: 100%;
-    height: 100%;
+    height: 3rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,14 +37,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 70%;
 }
 
 .details__condition {
     display: flex;
-    width: 50px;
-    justify-content: flex-start;
-    gap: 1rem;
+    justify-content: flex-end;
+    width: 300px;
     align-items: center;
 }
 
@@ -52,18 +51,21 @@
     width: 100px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .details__condition-image img {
-    width: 100%;
+    width: 50%;
 }
 
 .details__condition-uv {
-    width: 20%;
+    display: inline;
+    position: absolute;
+    margin-right: 10rem;
 }
 
 .details__name {
+    width: 3rem;
     text-align: left;
     vertical-align: baseline;
 }
@@ -73,54 +75,43 @@
     align-items: center;
     width: 5rem;
     height: 0.5rem;
-    border-radius: 1rem;
-    background-color: #0c3356;
+    border-radius: 0.2rem;
+    background-color: var(--color-blueNight);
 }
 
 .temperature__percentage-progress {
     position: relative;
     height: 100%;
-    background-color: blue;
-    border-radius: 1rem;
+    background-color: var(--color-blue);
+    border-radius: 0.2rem;
 }
 
 @media screen and (max-width: 950px) {
     .day__temperature-percentage {
         width: 3rem;
         height: 1rem;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .day__temperature-percentage {
-        width: 60px;
-        height: 15px;
-    }
-
-    .day__temperature {
-        width: 60%;
-        justify-content: space-around;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .day__temperature-percentage {
-        width: 30px;
-        height: 5px;
         margin: 0 0.5rem 0 0.5rem;
+
+    }
+}
+
+
+
+@media screen and (max-width: 750px) {
+    .day__temperature-percentage {
+        width: 50px;
+        height: 10px;
     }
 
-    .day__temperature {
-        width: 40%;
-        justify-content: space-around;
+    .details__condition-uv {
+        margin-right: 7rem;
     }
 
-    .details__condition p {
-        font-size: 12px;
-    }
+}
 
-    .details__condition-image {
-        width: 30px;
+@media screen and (max-width: 550px) {
+    .day__temperature-percentage {
+        width: 50px;
+        height: 10px;
     }
-
 }

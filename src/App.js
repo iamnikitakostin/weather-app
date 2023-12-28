@@ -124,7 +124,6 @@ function App() {
       setIsDay(responseJSON.current.is_day === 1);
       const temporaryForecastAverage = {mintemp: null, maxtemp: null};
       responseJSON.forecast.forecastday.forEach((element) => {
-      console.log(element)
       temporaryForecastAverage.mintemp = (temporaryForecastAverage.mintemp > element.day.mintemp_c || temporaryForecastAverage.mintemp === null) ? element.day.mintemp_c : temporaryForecastAverage.mintemp;
       temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
       })
@@ -156,11 +155,14 @@ function App() {
   return (
     <div className="App" style={
       {
-      backgroundImage: `url(./weather/background/${backgroundImage}.svg`,
-      backgroundColor: `${isDay ? 'var(--color-blue)' : 'var(--color-blueNight'}`,
-      backgroundBlendMode: `${isDay ? 'overlay' : 'soft-light'}`,
+      backgroundImage: `${isDay ? 'var(--background-day)' : 'var(--background-night)'}`,
+      height: `${isLoading ? '100vh' : ''}`
     }
       }>
+        {isLoading ? <></> : (<div className="app__background">
+          <img src={`./weather/background/${backgroundImage}.svg`}/>
+        </div>)
+        }
       <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours, forecastAverage}}>
         <div className="app__header">
           <EnhancedCurrentWeather/>

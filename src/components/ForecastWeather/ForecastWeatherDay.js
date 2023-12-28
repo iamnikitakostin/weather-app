@@ -9,7 +9,6 @@ function ForecastWeatherDay(props) {
         const dayOfWeekNumber = dateFormatted.getUTCDay();
         dayOfWeekTitle = props.weekDays[dayOfWeekNumber];
     }
-    console.log(props.data)
     const isTemperatureCelcius = props.isCelcius;
     const temperatureLow = isTemperatureCelcius ? props.data.day.mintemp_c : props.data.day.mintemp_f;
     const temperatureHigh = isTemperatureCelcius ? props.data.day.maxtemp_c : props.data.day.maxtemp_f;
@@ -38,7 +37,6 @@ function ForecastWeatherDay(props) {
                         <img src={conditionPath} alt="weather condition"/>
                     </div>
                 </div>
-
             </div>
             <div className="day__temperature">
                 <p className="p__georgia">{temperatureLow.toFixed(1)}°</p>
