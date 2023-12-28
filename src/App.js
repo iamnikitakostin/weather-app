@@ -112,13 +112,14 @@ function App() {
   const [isTwelveHours, setIsTwelveHours] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState(null);
   const [forecastAverage, setForecastAverage] = useState(null);
+  const [backgroundCity, setBackgroundCity] = useState(null);
+
 
   async function weatherCall() {
     const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${location.latitude},${location.longitude}&days=3&aqi=yes`);
     const responseJSON = await response.json();
     if (responseJSON.current.hasOwnProperty("last_updated") && responseJSON.location.hasOwnProperty("name") && responseJSON.forecast.hasOwnProperty("forecastday")){
       setData(responseJSON);
-      console.log(data)
       setIsLoading(false);
       setBackgroundImage(background(responseJSON.current.condition.code, responseJSON.current.is_day));
       setIsDay(responseJSON.current.is_day === 1);
@@ -128,6 +129,15 @@ function App() {
       temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
       })
       setForecastAverage(temporaryForecastAverage)
+
+      const requestCities = await fetch('https://api.teleport.org/api/urban_areas/');
+      const requestCitiesJSON = await requestCities.json()
+      const requestedCity = await requestCitiesJSON._links['ua:item'].find(city => city.name === responseJSON.location.name);
+      const requestCityPhotos = await fetch(requestedCity.href + 'images/');
+      const requestCityPhotosJSON = await requestCityPhotos.json()
+      setBackgroundCity(requestCityPhotosJSON.photos[0].image.web)
+
+
     }
     else{
       console.log("Something went wrong. Please check your API key and if the API is down.")
@@ -163,11 +173,22 @@ function App() {
           <img src={`./weather/background/${backgroundImage}.svg`}/>
         </div>)
         }
+        {isLoading || backgroundCity === 'undefined' ? <></> : (<div 
+        className="app__background-city"
+        style = {{
+          opacity: `${isDay ? '0.1' : '1'}`
+        }}
+        >
+          <img src={backgroundCity}/>
+        </div>)
+        }
       <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours, forecastAverage}}>
-        <div className="app__header">
+        <div className="app__header"
+        >
           <EnhancedCurrentWeather/>
           <Settings isCelcius={isCelcius} isTwelveHours={isTwelveHours} setIsCelcius={setIsCelcius} setIsTwelveHours={setIsTwelveHours}/>
           <ChangeCity setLocation={setLocation} isLoading={isLoading}/>
+
         </div>
         <EnhancedHourlyWeather/>
         <EnhancedForecastWeather/>

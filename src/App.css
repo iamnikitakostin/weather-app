@@ -20,11 +20,27 @@
   align-items: center;
   width: 50%;
   background-repeat: no-repeat;
-  z-index: 0;
+  z-index: 1;
 }
 
 .app__background img {
   width: 80%;
+}
+
+.app__background-city {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  mix-blend-mode: overlay;
+  filter: grayscale(100%);
+  z-index: 0;
+}
+
+.app__background-city img{
+  width: 100%;
+  min-height: 51vh;
+  object-fit: cover;
 }
 
 .app__header {
