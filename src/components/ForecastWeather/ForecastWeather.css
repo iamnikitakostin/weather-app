@@ -60,8 +60,6 @@
 
 .details__condition-uv {
     display: inline;
-    position: absolute;
-    margin-right: 10rem;
 }
 
 .details__name {
@@ -103,15 +101,24 @@
         height: 10px;
     }
 
-    .details__condition-uv {
-        margin-right: 7rem;
-    }
-
 }
 
 @media screen and (max-width: 550px) {
+    .details__condition {
+        width: 100px;
+    }
+
     .day__temperature-percentage {
         width: 50px;
         height: 10px;
     }
+
+    .details__condition-image {
+        width: 50px;
+    }
+
+    .day__temperature  {
+        width: 100px;
+    }
+
 }
