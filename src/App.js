@@ -112,7 +112,6 @@ function App() {
   const [isTwelveHours, setIsTwelveHours] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState(null);
   const [forecastAverage, setForecastAverage] = useState(null);
-  const [backgroundCity, setBackgroundCity] = useState(null);
 
 
   async function weatherCall() {
@@ -129,13 +128,6 @@ function App() {
       temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
       })
       setForecastAverage(temporaryForecastAverage)
-
-      const requestCities = await fetch('https://api.teleport.org/api/urban_areas/');
-      const requestCitiesJSON = await requestCities.json()
-      const requestedCity = await requestCitiesJSON._links['ua:item'].find(city => city.name === responseJSON.location.name);
-      const requestCityPhotos = await fetch(requestedCity.href + 'images/');
-      const requestCityPhotosJSON = await requestCityPhotos.json()
-      setBackgroundCity(requestCityPhotosJSON.photos[0].image.web)
 
 
     }
@@ -173,15 +165,7 @@ function App() {
           <img src={`./weather/background/${backgroundImage}.svg`}/>
         </div>)
         }
-        {isLoading || backgroundCity === 'undefined' ? <></> : (<div 
-        className="app__background-city"
-        style = {{
-          opacity: `${isDay ? '0.1' : '1'}`
-        }}
-        >
-          <img src={backgroundCity}/>
-        </div>)
-        }
+
       <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours, forecastAverage}}>
         <div className="app__header"
         >
