@@ -10,6 +10,7 @@ import Settings from "./components/Settings/Settings";
 import AirQuality from "./components/AirQuality/AirQuality";
 import Humidity from "./components/Humidity/Humidity"
 import ChangeCity from "./components/ChangeCity/ChangeCity";
+import Background from "./components/Background/Background";
 
 function background(weather, isDay) {
   switch(weather) {
@@ -128,6 +129,7 @@ function App() {
       temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
       })
       setForecastAverage(temporaryForecastAverage)
+      console.log(responseJSON)
 
 
     }
@@ -153,6 +155,7 @@ function App() {
   const EnhancedHourlyWeather = withLoading(HourlyWeather);
   const EnhancedAirQuality = withLoading(AirQuality);
   const EnhancedHumidity = withLoading(Humidity)
+  const EnhancedBackground = withLoading(Background);
 
   return (
     <div className="App" style={
@@ -161,12 +164,8 @@ function App() {
       height: `${isLoading ? '100vh' : ''}`
     }
       }>
-        {isLoading ? <></> : (<div className="app__background">
-          <img src={`./weather/background/${backgroundImage}.svg`}/>
-        </div>)
-        }
-
       <AppContext.Provider value={{data, isLoading, isCelcius, isTwelveHours, forecastAverage}}>
+        <EnhancedBackground isLoading={isLoading} backgroundImage={backgroundImage} isDay={isDay}/>
         <div className="app__header"
         >
           <EnhancedCurrentWeather/>

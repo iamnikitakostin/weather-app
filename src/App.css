@@ -11,22 +11,6 @@
   min-height: 100vh;
 }
 
-.app__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.app__background img {
-  width: 80%;
-}
-
 .app__header {
   display: flex;
   flex-direction: column;
@@ -118,22 +102,7 @@
   }
 }
 
-@media screen and (max-width: 1150px) {
-  .app__background {
-    top: 0;
-    left: 0;
-    opacity: 0.8;
-    width: 60%;
-  }
-}
 
-@media screen and (max-width: 850px) {
-  .app__background {
-    top: 0;
-    left: 0;
-    width: 80%;
-  }
-}
 
 @media screen and (max-width: 650px) {
   .p__arial {
@@ -142,12 +111,6 @@
 
   .p__georgia {
     font-size: 16px;
-  }
-
-  .app__background {
-    top: 0;
-    left: 0;
-    width: 100%;
   }
 
   .app__header {
