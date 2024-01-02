@@ -89,8 +89,8 @@
         width: 3rem;
         height: 1rem;
         margin: 0 0.5rem 0 0.5rem;
-
     }
+
 }
 
 
@@ -114,7 +114,7 @@
     }
 
     .details__condition-image {
-        width: 50px;
+        width: 75px;
     }
 
     .day__temperature  {
@@ -122,7 +122,12 @@
     }
 
     .details__condition-uv {
-        width: 15px;
+        width: 40px;
+    }
+
+    .weather__forecast {
+        padding: 1rem;
+        width: 90%;
     }
 
 }
