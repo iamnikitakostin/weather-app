@@ -23,7 +23,6 @@ function Background(props) {
     endTimeFormatted.setHours(endTime[0], endTime[1], 0, 0);
     const newPosition = ((currentTimeFormatted.getTime() - startTimeFormatted.getTime()) / (endTimeFormatted.getTime() - startTimeFormatted.getTime()))/2*100;
     setCurrentPosition(newPosition);
-    console.log(newPosition)
   }, [props.weather])
 
     return (

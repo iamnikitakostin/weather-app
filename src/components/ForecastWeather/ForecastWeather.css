@@ -121,4 +121,8 @@
         width: 100px;
     }
 
+    .details__condition-uv {
+        width: 15px;
+    }
+
 }
