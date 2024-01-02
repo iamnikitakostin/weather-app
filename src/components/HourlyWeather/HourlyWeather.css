@@ -46,11 +46,12 @@
 }
 
 .period__condition {
+    width: 8vw;
     flex: 1;
 }
 
 .period__condition > img {
-    width: 6vw;
+    width: 100%;
 }
 
 .period__temperature {
