@@ -11,6 +11,7 @@ import AirQuality from "./components/AirQuality/AirQuality";
 import Humidity from "./components/Humidity/Humidity"
 import ChangeCity from "./components/ChangeCity/ChangeCity";
 import Background from "./components/Background/Background";
+import CityCamera from "./components/CityCamera/CityCamera";
 
 function background(weather, isDay) {
   switch(weather) {
@@ -156,6 +157,7 @@ function App() {
   const EnhancedAirQuality = withLoading(AirQuality);
   const EnhancedHumidity = withLoading(Humidity)
   const EnhancedBackground = withLoading(Background);
+  const EnhancedCityCamera = withLoading(CityCamera);
 
   return (
     <div className="App" style={
@@ -171,7 +173,7 @@ function App() {
           <EnhancedCurrentWeather/>
           <Settings isCelcius={isCelcius} isTwelveHours={isTwelveHours} setIsCelcius={setIsCelcius} setIsTwelveHours={setIsTwelveHours}/>
           <ChangeCity setLocation={setLocation} isLoading={isLoading}/>
-
+          <EnhancedCityCamera/>
         </div>
         <EnhancedHourlyWeather/>
         <EnhancedForecastWeather/>
