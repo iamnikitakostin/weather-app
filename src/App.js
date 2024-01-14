@@ -130,9 +130,6 @@ function App() {
       temporaryForecastAverage.maxtemp = (temporaryForecastAverage.maxtemp < element.day.maxtemp_c  || temporaryForecastAverage.mintemp === null) ? element.day.maxtemp_c : temporaryForecastAverage.maxtemp;
       })
       setForecastAverage(temporaryForecastAverage)
-      console.log(responseJSON)
-
-
     }
     else{
       console.log("Something went wrong. Please check your API key and if the API is down.")

@@ -19,28 +19,34 @@ function CityCamera(props) {
                 })
                     .then(response => response.json())
                     .then(data => {
-                    return data.webcams[0].webcamId;
+                        if (data.total > 0) {
+                            return data.webcams[0].webcamId;
+                        }
+                        else {
+                            return false;
+                        }
                     })
                     .catch(error => {
                     console.error('Error:', error);
                     });
 
-                console.log(cameraId)
-                const cameraURL = await fetch(`https://api.windy.com/webcams/api/v3/webcams/${cameraId}?lang=en&include=images`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'x-windy-api-key': apiKey
-                    }
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        return data.images.current.preview;
+                if (cameraId != false) {
+                    const cameraURL = await fetch(`https://api.windy.com/webcams/api/v3/webcams/${cameraId}?lang=en&include=images`, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'x-windy-api-key': apiKey
+                        }
                     })
-                console.log(cameraURL)
-                setCamera(cameraURL)
-            console.log(cameraURL)
-
+                        .then(response => response.json())
+                        .then(data => {
+                            return data.images.current.preview;
+                        })
+                    setCamera(cameraURL)
+                }
+                else {
+                    setCamera(false);
+                }
             }
 
             getCamera(latitude, longitude);
